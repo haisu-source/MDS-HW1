@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fool — Classical Border</title>
+  <style>
+    /* v18 Wax Seal + double border + breathing seal animation */
+    body {
+      font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+      background: linear-gradient(175deg, #f4ece1 0%, #efe5d6 30%, #e8dcc8 70%, #e0d4be 100%);
+      color: #3a2e1e;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 60px 40px;
+      min-height: 100vh;
+    }
+
+    h1 {
+      font-weight: normal;
+      font-size: 2.2rem;
+      letter-spacing: 0.1em;
+      color: #4a3620;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      font-size: 0.75rem;
+      font-style: italic;
+      color: #8a7a62;
+      letter-spacing: 0.08em;
+      margin-bottom: 40px;
+    }
+
+    .card-image {
+      width: 200px;
+      height: 300px;
+      border: 4px double #8b4513;
+      position: relative;
+      overflow: visible;
+      margin-bottom: 50px;
+      background: linear-gradient(170deg, #f0e8da 0%, #e8dcc8 100%);
+    }
+
+    .card-number {
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      font-size: 0.85rem;
+      color: #8b7355;
+      font-style: italic;
+    }
+
+    .card-label {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      color: #8b7355;
+    }
+
+    /* === Owl === */
+    .owl {
+      position: absolute;
+      top: 28px;
+      left: 50%;
+      margin-left: -18px;
+    }
+
+    .owl-body {
+      width: 36px;
+      height: 44px;
+      background: #5a4230;
+      border-radius: 50% 50% 45% 45%;
+      position: relative;
+    }
+
+    .owl-body::before {
+      content: "";
+      position: absolute;
+      top: 10px;
+      left: 5px;
+      width: 10px;
+      height: 10px;
+      background: #f0e8da;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 3px #5a4230;
+    }
+
+    .owl-body::after {
+      content: "";
+      position: absolute;
+      top: 10px;
+      right: 5px;
+      width: 10px;
+      height: 10px;
+      background: #f0e8da;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 3px #5a4230;
+    }
+
+    .owl-beak {
+      width: 0;
+      height: 0;
+      border-left: 4px solid transparent;
+      border-right: 4px solid transparent;
+      border-top: 6px solid #8b7355;
+      position: absolute;
+      top: 22px;
+      left: 50%;
+      margin-left: -4px;
+      z-index: 1;
+    }
+
+    .owl-ear-l {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 12px solid #5a4230;
+      position: absolute;
+      top: -10px;
+      left: 2px;
+      transform: rotate(-10deg);
+    }
+
+    .owl-ear-r {
+      width: 0;
+      height: 0;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: 12px solid #5a4230;
+      position: absolute;
+      top: -10px;
+      right: 2px;
+      transform: rotate(10deg);
+    }
+
+    .owl-feet {
+      width: 20px;
+      height: 4px;
+      margin: 0 auto;
+      border-left: 3px solid #5a4230;
+      border-right: 3px solid #5a4230;
+    }
+
+    /* === Scene === */
+    .cliff {
+      position: absolute;
+      bottom: 26px;
+      left: 0;
+      width: 125px;
+      height: 50px;
+      border-top: 2px solid #8b7355;
+      border-right: 2px solid #8b7355;
+    }
+
+    .cliff::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -2px;
+      width: 2px;
+      height: 50px;
+      background: #8b7355;
+    }
+
+    .figure {
+      position: absolute;
+      bottom: 76px;
+      left: 85px;
+      width: 12px;
+      height: 32px;
+      border: 2px solid #5a4230;
+      border-radius: 2px;
+    }
+
+    .figure::before {
+      content: "";
+      position: absolute;
+      top: -13px;
+      left: 0px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid #5a4230;
+      border-radius: 50%;
+    }
+
+    .figure::after {
+      content: "";
+      position: absolute;
+      bottom: -11px;
+      left: 0px;
+      width: 8px;
+      height: 11px;
+      border-left: 2px solid #5a4230;
+      border-right: 2px solid #5a4230;
+    }
+
+    .stick {
+      position: absolute;
+      bottom: 66px;
+      left: 74px;
+      width: 2px;
+      height: 42px;
+      background: #6b5a3e;
+      transform: rotate(15deg);
+    }
+
+    .stick::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: -4px;
+      width: 10px;
+      height: 8px;
+      border: 2px solid #6b5a3e;
+      border-radius: 50%;
+    }
+
+    .dog {
+      position: absolute;
+      bottom: 76px;
+      left: 52px;
+      width: 12px;
+      height: 8px;
+      border: 2px solid #6b5a3e;
+      border-radius: 2px;
+    }
+
+    .dog::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      right: -2px;
+      width: 7px;
+      height: 5px;
+      border: 2px solid #6b5a3e;
+      border-radius: 50%;
+    }
+
+    /* === Breathing Wax Seal === */
+    @keyframes sealBreathe {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow:
+          0 2px 6px rgba(0, 0, 0, 0.3),
+          inset 0 1px 2px rgba(255, 255, 255, 0.15);
+      }
+      50% {
+        transform: scale(1.08);
+        box-shadow:
+          0 3px 10px rgba(139, 0, 0, 0.4),
+          inset 0 1px 2px rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    .wax-seal {
+      position: absolute;
+      bottom: -16px;
+      right: -16px;
+      width: 42px;
+      height: 42px;
+      background: radial-gradient(circle at 40% 40%, #b81a1a, #8B0000 60%, #6a0000);
+      border-radius: 50%;
+      box-shadow:
+        0 2px 6px rgba(0, 0, 0, 0.3),
+        inset 0 1px 2px rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.85rem;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.7);
+      letter-spacing: 0.05em;
+      animation: sealBreathe 3s ease-in-out infinite;
+    }
+
+    p {
+      line-height: 1.9;
+      font-size: 0.95rem;
+      color: #4a3e2e;
+    }
+  </style>
+</head>
+<body>
+  <h1>The Fool</h1>
+  <p class="subtitle">Card 0 &mdash; Major Arcana</p>
+  <div class="card-image">
+    <span class="card-number">0</span>
+    <div class="owl">
+      <div class="owl-ear-l"></div>
+      <div class="owl-ear-r"></div>
+      <div class="owl-body">
+        <div class="owl-beak"></div>
+      </div>
+      <div class="owl-feet"></div>
+    </div>
+    <div class="cliff"></div>
+    <div class="stick"></div>
+    <div class="figure"></div>
+    <div class="dog"></div>
+    <span class="card-label">THE FOOL</span>
+    <div class="wax-seal">0</div>
+  </div>
+  <p>The Fool is card 0 of the Major Arcana. It represents new beginnings, spontaneity, and a free spirit. The card depicts a young traveler stepping carefree toward the edge of a cliff, carrying a small bundle and a white rose. A small dog follows at their heels. The Fool reminds us to embrace the unknown with an open heart and trust the journey ahead.</p>
+</body>
+</html>

@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fool — Swiss/Modernist</title>
+  <style>
+    body {
+      font-family: Helvetica, Arial, sans-serif;
+      background: #fff;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    .page {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      min-height: 100vh;
+    }
+
+    .left {
+      background: #000;
+      color: #fff;
+      padding: 3rem 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+
+    .card-number {
+      font-size: 8rem;
+      font-weight: 900;
+      line-height: 1;
+      color: #e60012;
+    }
+
+    .card-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: #999;
+    }
+
+    .right {
+      padding: 3rem 3rem 3rem 2.5rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    h1 {
+      font-size: 5rem;
+      font-weight: 900;
+      line-height: 0.95;
+      margin: 0 0 1.5rem 0;
+      text-transform: uppercase;
+      letter-spacing: -0.03em;
+    }
+
+    .red {
+      color: #e60012;
+    }
+
+    .rule {
+      width: 60px;
+      height: 4px;
+      background: #e60012;
+      margin-bottom: 1.5rem;
+    }
+
+    /* Card image as typographic block */
+    .card-image {
+      width: 100%;
+      max-width: 360px;
+      aspect-ratio: 2 / 3;
+      border-left: 8px solid #e60012;
+      padding: 2rem 1.5rem;
+      margin-bottom: 2rem;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: #fafafa;
+    }
+
+    .card-image .card-title {
+      font-size: 3.5rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.95;
+      letter-spacing: -0.02em;
+    }
+
+    .card-image .card-subtitle {
+      font-size: 0.7rem;
+      text-transform: uppercase;
+      letter-spacing: 0.3em;
+      color: #999;
+    }
+
+    .card-image .card-numeral {
+      font-size: 6rem;
+      font-weight: 900;
+      color: #e60012;
+      line-height: 1;
+      align-self: flex-end;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.7;
+      max-width: 460px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+  <div class="page">
+    <div class="left">
+      <div>
+        <div class="card-number">0</div>
+      </div>
+      <div class="card-label">Major Arcana</div>
+    </div>
+    <div class="right">
+      <h1>The<br><span class="red">Fool</span></h1>
+      <div class="rule"></div>
+      <div class="card-image">
+        <div>
+          <div class="card-subtitle">Card Zero — Major Arcana</div>
+          <div class="card-title">The<br>Fool</div>
+        </div>
+        <div class="card-numeral">0</div>
+      </div>
+      <p>The Fool is card 0 of the Major Arcana. It represents new beginnings, spontaneity, and a free spirit. The card depicts a young traveler stepping carefree toward the edge of a cliff, carrying a small bundle and a white rose. A small dog follows at their heels. The Fool reminds us to embrace the unknown with an open heart and trust the journey ahead.</p>
+    </div>
+  </div>
+</body>
+</html>

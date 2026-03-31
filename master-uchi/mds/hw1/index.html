@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>TarotBook</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background-color: #1a1a2e;
+      color: #e0d6c8;
+      min-height: 100vh;
+      padding: 2rem;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 0.5rem;
+      letter-spacing: 0.15em;
+      color: #c9a84c;
+    }
+
+    .subtitle {
+      text-align: center;
+      color: #887750;
+      margin-bottom: 2.5rem;
+      font-size: 1rem;
+      letter-spacing: 0.05em;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .gallery a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    .card {
+      aspect-ratio: 2 / 3;
+      border: 2px solid #c9a84c;
+      border-radius: 8px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.5rem;
+      text-align: center;
+      background-color: #16213e;
+      transition: background-color 0.2s;
+    }
+
+    .card:hover {
+      background-color: #1f3056;
+    }
+
+    .card .version {
+      font-size: 0.85rem;
+      color: #887750;
+      letter-spacing: 0.1em;
+      margin-bottom: 0.5rem;
+    }
+
+    .card .name {
+      font-size: 1.4rem;
+      color: #c9a84c;
+      margin-bottom: 0.75rem;
+    }
+
+    .card .desc {
+      font-size: 0.8rem;
+      color: #998866;
+      line-height: 1.5;
+    }
+  </style>
+</head>
+<body>
+  <h1>TarotBook</h1>
+  <p class="subtitle">The Fool — Twenty Ways</p>
+  <div class="gallery">
+    <a href="versions/v1.html">
+      <div class="card">
+        <span class="version">v1</span>
+        <span class="name">Skeleton</span>
+        <span class="desc">Barebones HTML. Black text, white background, browser defaults.</span>
+      </div>
+    </a>
+    <a href="versions/v2.html">
+      <div class="card">
+        <span class="version">v2</span>
+        <span class="name">Mystical</span>
+        <span class="desc">Deep purple, gold serif fonts, ornate borders. Ancient spellbook.</span>
+      </div>
+    </a>
+    <a href="versions/v3.html">
+      <div class="card">
+        <span class="version">v3</span>
+        <span class="name">Brutalist</span>
+        <span class="desc">Neon yellow, thick black borders, oversized uppercase. Raw and loud.</span>
+      </div>
+    </a>
+    <a href="versions/v4.html">
+      <div class="card">
+        <span class="version">v4</span>
+        <span class="name">Minimalist</span>
+        <span class="desc">White space, thin lines, light gray text. Apple-esque restraint.</span>
+      </div>
+    </a>
+    <a href="versions/v5.html">
+      <div class="card">
+        <span class="version">v5</span>
+        <span class="name">Cyberpunk</span>
+        <span class="desc">Black background, neon pink glows, monospace, cyan accents. Terminal vibes.</span>
+      </div>
+    </a>
+    <a href="versions/v6.html">
+      <div class="card">
+        <span class="version">v6</span>
+        <span class="name">Swiss/Modernist</span>
+        <span class="desc">Red, black, white. Huge bold type, asymmetric grid, pure typography.</span>
+      </div>
+    </a>
+    <a href="versions/v7.html">
+      <div class="card">
+        <span class="version">v7</span>
+        <span class="name">Retro 90s</span>
+        <span class="desc">Gray tiles, blue links, Times New Roman, hit counter. Geocities energy.</span>
+      </div>
+    </a>
+    <a href="versions/v8.html">
+      <div class="card">
+        <span class="version">v8</span>
+        <span class="name">Nature/Organic</span>
+        <span class="desc">Sage green, rounded corners, earth tones, serif. Herbalist's notebook.</span>
+      </div>
+    </a>
+    <a href="versions/v9.html">
+      <div class="card">
+        <span class="version">v9</span>
+        <span class="name">High-Fashion</span>
+        <span class="desc">Large image, overlapping text, editorial layout. Magazine spread.</span>
+      </div>
+    </a>
+    <a href="versions/v10.html">
+      <div class="card">
+        <span class="version">v10</span>
+        <span class="name">Terminal/CLI</span>
+        <span class="desc">Black screen, green monospace, ASCII art, command prompts. Hack the tarot.</span>
+      </div>
+    </a>
+    <a href="versions/v11.html">
+      <div class="card">
+        <span class="version">v11</span>
+        <span class="name">Modern Mystical</span>
+        <span class="desc">v4 + v2. Dark mode, huge whitespace, thin gold hairlines, scattered stars.</span>
+      </div>
+    </a>
+    <a href="versions/v12.html">
+      <div class="card">
+        <span class="version">v12</span>
+        <span class="name">Cyber-Brutalist</span>
+        <span class="desc">v3 + v5. Thick neon borders, pink/cyan glows, monospace, scanlines.</span>
+      </div>
+    </a>
+    <a href="versions/v13.html">
+      <div class="card">
+        <span class="version">v13</span>
+        <span class="name">Nature-Modernist</span>
+        <span class="desc">v6 + v8. Swiss asymmetric grid in sage green and earth tones.</span>
+      </div>
+    </a>
+    <a href="versions/v14.html">
+      <div class="card">
+        <span class="version">v14</span>
+        <span class="name">Editorial CLI</span>
+        <span class="desc">v9 + v10. Magazine-scale layout, monospace type, ASCII art, status bar.</span>
+      </div>
+    </a>
+    <a href="versions/v15.html">
+      <div class="card">
+        <span class="version">v15</span>
+        <span class="name">The Hybrid</span>
+        <span class="desc">v2 + v1. Warm serif type, clean single-column, subtle hover glow on card.</span>
+      </div>
+    </a>
+    <a href="versions/v16.html">
+      <div class="card">
+        <span class="version">v16</span>
+        <span class="name">Vintage Journal</span>
+        <span class="desc">New direction: Classical Bestiary. Sepia gradient bg, Palatino serif, aged paper feel.</span>
+      </div>
+    </a>
+    <a href="versions/v17.html">
+      <div class="card">
+        <span class="version">v17</span>
+        <span class="name">The Wise Owl</span>
+        <span class="desc">v16 refined. CSS owl silhouette — geometric circles, triangles, dark brown. Wisdom motif.</span>
+      </div>
+    </a>
+    <a href="versions/v18.html">
+      <div class="card">
+        <span class="version">v18</span>
+        <span class="name">Wax Seal Motif</span>
+        <span class="desc">v17 refined. Deep red wax seal in card corner — radial gradient, raised box-shadow.</span>
+      </div>
+    </a>
+    <a href="versions/v19.html">
+      <div class="card">
+        <span class="version">v19</span>
+        <span class="name">Classical Border</span>
+        <span class="desc">v18 refined. Double border in wood brown. Breathing animation on the seal only.</span>
+      </div>
+    </a>
+    <a href="versions/v20.html">
+      <div class="card">
+        <span class="version">v20</span>
+        <span class="name">Latin Typography</span>
+        <span class="desc">v19 refined. ALL CAPS wide-tracked title, Latin motto "Incipit Vita Nova", Latin keywords.</span>
+      </div>
+    </a>
+  </div>
+</body>
+</html>

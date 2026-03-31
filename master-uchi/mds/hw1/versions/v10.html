@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fool — Terminal/CLI</title>
+  <style>
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background: #000;
+      color: #33ff33;
+      margin: 0;
+      padding: 1.5rem;
+      min-height: 100vh;
+      font-size: 0.9rem;
+      line-height: 1.6;
+    }
+
+    .prompt::before {
+      content: "$ ";
+      color: #33ff33;
+    }
+
+    .prompt {
+      margin: 0.3rem 0;
+    }
+
+    .output {
+      color: #33ff33;
+      margin: 0.2rem 0 0.8rem 0;
+    }
+
+    .dim {
+      color: #1a8c1a;
+    }
+
+    .bright {
+      color: #66ff66;
+    }
+
+    .heading {
+      color: #33ff33;
+      font-weight: bold;
+    }
+
+    h1 {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.9rem;
+      font-weight: normal;
+      color: #33ff33;
+      margin: 0;
+    }
+
+    /* ASCII card frame */
+    .card-image {
+      margin: 0.5rem 0;
+      white-space: pre;
+      font-size: 0.78rem;
+      line-height: 1.25;
+    }
+
+    /* Cursor blink */
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 14px;
+      background: #33ff33;
+      animation: blink 1s step-end infinite;
+      vertical-align: text-bottom;
+    }
+
+    @keyframes blink {
+      50% { background: transparent; }
+    }
+
+    .separator {
+      color: #1a8c1a;
+      margin: 0.3rem 0;
+    }
+
+    .table-row {
+      margin: 0;
+    }
+
+    .key {
+      display: inline-block;
+      width: 140px;
+      color: #1a8c1a;
+    }
+
+    .val {
+      color: #33ff33;
+    }
+
+    p {
+      margin: 0.5rem 0;
+      max-width: 72ch;
+    }
+  </style>
+</head>
+<body>
+<div class="output dim">TarotOS v0.1.0 — Divination Terminal</div>
+<div class="output dim">Last login: Thu Jan 1 00:00:00 on tty0</div>
+<div class="separator">────────────────────────────────────────────────────</div>
+
+<div class="prompt">tarot --pull card 0</div>
+<div class="output"><span class="bright">[OK]</span> Loading Major Arcana... done.</div>
+<div class="output"><span class="bright">[OK]</span> Card 0 found: THE FOOL</div>
+
+<div class="separator">────────────────────────────────────────────────────</div>
+
+<div class="prompt">tarot --display card 0 --ascii</div>
+<div class="card-image">
+┌──────────────────────────┐
+│ 0                    .   │
+│                    .'|'. │
+│                   ' _|_ '│
+│                    (_)   │
+│                          │
+│                          │
+│              \  O        │
+│               \/ \       │
+│          __   /\  |      │
+│        /    \  |  |      │
+│      /   .   \   / \     │
+│     │  (dog)  │ /   \    │
+│─────┘         └──        │
+│                    ░░░   │
+│                  ░░░░░░  │
+│                          │
+│       T H E  F O O L     │
+└──────────────────────────┘</div>
+
+<div class="separator">────────────────────────────────────────────────────</div>
+
+<div class="prompt">tarot --info card 0</div>
+<div class="output">
+<div class="table-row"><span class="key">CARD_NAME:</span><span class="val">The Fool</span></div>
+<div class="table-row"><span class="key">CARD_NUMBER:</span><span class="val">0</span></div>
+<div class="table-row"><span class="key">ARCANA:</span><span class="val">Major</span></div>
+<div class="table-row"><span class="key">ELEMENT:</span><span class="val">Air</span></div>
+<div class="table-row"><span class="key">PLANET:</span><span class="val">Uranus</span></div>
+<div class="table-row"><span class="key">KEYWORDS:</span><span class="val">beginnings, innocence, spontaneity, free_spirit</span></div>
+</div>
+
+<div class="separator">────────────────────────────────────────────────────</div>
+
+<div class="prompt">tarot --describe card 0</div>
+<p>The Fool is card 0 of the Major Arcana. It represents new beginnings, spontaneity, and a free spirit. The card depicts a young traveler stepping carefree toward the edge of a cliff, carrying a small bundle and a white rose. A small dog follows at their heels. The Fool reminds us to embrace the unknown with an open heart and trust the journey ahead.</p>
+
+<div class="separator">────────────────────────────────────────────────────</div>
+
+<div class="prompt">tarot --next<span class="cursor"></span></div>
+</body>
+</html>

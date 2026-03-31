@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fool</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background: #fff;
+      color: #000;
+      max-width: 600px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+
+    h1 {
+      margin-bottom: 1rem;
+    }
+
+    .card-image {
+      width: 200px;
+      height: 300px;
+      border: 2px solid #000;
+      margin-bottom: 1rem;
+      position: relative;
+      overflow: hidden;
+      background: #fff;
+    }
+
+    /* Card number */
+    .card-number {
+      position: absolute;
+      top: 8px;
+      left: 10px;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
+
+    .card-label {
+      position: absolute;
+      bottom: 8px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.7rem;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+    }
+
+    /* Sun - simple circle */
+    .sun {
+      position: absolute;
+      top: 20px;
+      right: 25px;
+      width: 35px;
+      height: 35px;
+      border: 2px solid #000;
+      border-radius: 50%;
+    }
+
+    /* Sun rays */
+    .sun::before {
+      content: "";
+      position: absolute;
+      top: -8px;
+      left: -8px;
+      right: -8px;
+      bottom: -8px;
+      border: 1px dashed #000;
+      border-radius: 50%;
+    }
+
+    /* Cliff / ground */
+    .cliff {
+      position: absolute;
+      bottom: 25px;
+      left: 0;
+      width: 140px;
+      height: 60px;
+      border-top: 2px solid #000;
+      border-right: 2px solid #000;
+    }
+
+    /* Drop-off */
+    .cliff::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: -2px;
+      width: 2px;
+      height: 60px;
+      background: #000;
+    }
+
+    /* Figure - body */
+    .figure {
+      position: absolute;
+      bottom: 85px;
+      left: 90px;
+      width: 16px;
+      height: 45px;
+      border: 2px solid #000;
+    }
+
+    /* Figure - head */
+    .figure::before {
+      content: "";
+      position: absolute;
+      top: -18px;
+      left: 1px;
+      width: 14px;
+      height: 14px;
+      border: 2px solid #000;
+      border-radius: 50%;
+    }
+
+    /* Figure - legs */
+    .figure::after {
+      content: "";
+      position: absolute;
+      bottom: -16px;
+      left: 0;
+      width: 12px;
+      height: 15px;
+      border-left: 2px solid #000;
+      border-right: 2px solid #000;
+    }
+
+    /* Walking stick */
+    .stick {
+      position: absolute;
+      bottom: 75px;
+      left: 78px;
+      width: 2px;
+      height: 55px;
+      background: #000;
+      transform: rotate(15deg);
+    }
+
+    /* Bundle on stick */
+    .stick::before {
+      content: "";
+      position: absolute;
+      top: -6px;
+      left: -5px;
+      width: 12px;
+      height: 10px;
+      border: 2px solid #000;
+      border-radius: 50%;
+    }
+
+    /* Dog */
+    .dog {
+      position: absolute;
+      bottom: 85px;
+      left: 55px;
+      width: 14px;
+      height: 10px;
+      border: 2px solid #000;
+    }
+
+    /* Dog head */
+    .dog::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      right: -3px;
+      width: 8px;
+      height: 7px;
+      border: 2px solid #000;
+      border-radius: 50%;
+    }
+
+    p {
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>The Fool</h1>
+  <div class="card-image">
+    <span class="card-number">0</span>
+    <div class="sun"></div>
+    <div class="cliff"></div>
+    <div class="stick"></div>
+    <div class="figure"></div>
+    <div class="dog"></div>
+    <span class="card-label">THE FOOL</span>
+  </div>
+  <p>The Fool is card 0 of the Major Arcana. It represents new beginnings, spontaneity, and a free spirit. The card depicts a young traveler stepping carefree toward the edge of a cliff, carrying a small bundle and a white rose. A small dog follows at their heels. The Fool reminds us to embrace the unknown with an open heart and trust the journey ahead.</p>
+</body>
+</html>

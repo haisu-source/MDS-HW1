@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fool — Editorial CLI</title>
+  <style>
+    /* v9 Magazine scale + v10 Terminal monospace structure */
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background: #0a0a0a;
+      color: #e8e8e8;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .spread {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* Large card area — 70vh like v9 */
+    .card-image {
+      width: 65%;
+      height: 70vh;
+      background: #111;
+      position: relative;
+      margin-left: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 1px solid #333;
+    }
+
+    .card-image .meta {
+      position: absolute;
+      top: 15px;
+      left: 20px;
+      font-size: 0.7rem;
+      color: #555;
+      letter-spacing: 0.1em;
+    }
+
+    /* ASCII art inside the large frame */
+    .ascii-art {
+      white-space: pre;
+      font-size: 0.85rem;
+      line-height: 1.3;
+      color: #888;
+    }
+
+    /* Massive overlapping title — editorial scale, monospace font */
+    .title-overlay {
+      position: absolute;
+      top: 52vh;
+      right: 6%;
+      z-index: 2;
+    }
+
+    .title-overlay h1 {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 7rem;
+      font-weight: bold;
+      text-transform: uppercase;
+      line-height: 0.85;
+      margin: 0;
+      color: #fff;
+      letter-spacing: -0.05em;
+    }
+
+    .title-overlay .tag {
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    /* Pull quote — editorial style, monospace */
+    .pull-quote {
+      position: absolute;
+      top: 28vh;
+      right: 5%;
+      width: 22%;
+      z-index: 3;
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #666;
+      border-left: 2px solid #333;
+      padding-left: 1rem;
+    }
+
+    .pull-quote::before {
+      content: "> ";
+      color: #555;
+    }
+
+    /* Article block — overlapping bottom */
+    .article {
+      position: absolute;
+      top: 68vh;
+      left: 6%;
+      width: 50%;
+      z-index: 2;
+      padding: 1.5rem 0;
+    }
+
+    .article .kicker {
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 0.8rem;
+    }
+
+    .article p {
+      font-size: 0.85rem;
+      line-height: 1.8;
+      color: #aaa;
+    }
+
+    /* Status bar at bottom */
+    .status {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #111;
+      border-top: 1px solid #333;
+      padding: 6px 20px;
+      font-size: 0.65rem;
+      color: #555;
+      display: flex;
+      justify-content: space-between;
+    }
+
+    /* Cursor */
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 14px;
+      background: #e8e8e8;
+      animation: blink 1s step-end infinite;
+      vertical-align: text-bottom;
+    }
+
+    @keyframes blink {
+      50% { background: transparent; }
+    }
+  </style>
+</head>
+<body>
+  <div class="spread">
+    <div class="card-image">
+      <span class="meta">$ cat /arcana/major/00_the_fool.ascii</span>
+      <div class="ascii-art">
+         ┌──────────────────────────┐
+         │ 0                    .   │
+         │                    .'|'. │
+         │                   ' _|_ '│
+         │                    (_)   │
+         │                          │
+         │                          │
+         │              \  O        │
+         │               \/ \       │
+         │          __   /\  |      │
+         │        /    \  |  |      │
+         │      /   .   \   / \     │
+         │     │  (dog)  │ /   \    │
+         │─────┘         └──        │
+         │                    ░░░   │
+         │                  ░░░░░░  │
+         │                          │
+         │       T H E  F O O L     │
+         └──────────────────────────┘</div>
+    </div>
+
+    <div class="pull-quote">Embrace the unknown with an open heart and trust the journey.</div>
+
+    <div class="title-overlay">
+      <h1>THE<br>FOOL</h1>
+      <div class="tag">card 0 &mdash; major arcana &mdash; stdin</div>
+    </div>
+
+    <div class="article">
+      <div class="kicker">$ tarot --describe --verbose card_0</div>
+      <p>The Fool is card 0 of the Major Arcana. It represents new beginnings, spontaneity, and a free spirit. The card depicts a young traveler stepping carefree toward the edge of a cliff, carrying a small bundle and a white rose. A small dog follows at their heels. The Fool reminds us to embrace the unknown with an open heart and trust the journey ahead.<span class="cursor"></span></p>
+    </div>
+
+    <div class="status">
+      <span>tarotbook v0.1.0</span>
+      <span>card 0/21 | major_arcana | utf-8</span>
+    </div>
+  </div>
+</body>
+</html>

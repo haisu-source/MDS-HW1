@@ -1,0 +1,274 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fool — High-Fashion Magazine</title>
+  <style>
+    body {
+      font-family: Georgia, 'Times New Roman', serif;
+      background: #f8f6f2;
+      color: #1a1a1a;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .spread {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* Large image placeholder - 70% of viewport */
+    .card-image {
+      width: 60%;
+      height: 70vh;
+      background: #e8e2d8;
+      position: relative;
+      margin-left: 5%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+    }
+
+    .card-image .card-number {
+      position: absolute;
+      top: 20px;
+      left: 20px;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      color: #999;
+      text-transform: uppercase;
+    }
+
+    /* CSS illustration inside the large frame */
+    .illustration {
+      position: relative;
+      width: 220px;
+      height: 320px;
+    }
+
+    .illustration .sun {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      width: 50px;
+      height: 50px;
+      border: 1.5px solid #b8a88a;
+      border-radius: 50%;
+    }
+
+    .illustration .sun::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 10px;
+      height: 10px;
+      margin: -5px 0 0 -5px;
+      background: #b8a88a;
+      border-radius: 50%;
+    }
+
+    .illustration .cliff {
+      position: absolute;
+      bottom: 10px;
+      left: 0;
+      width: 140px;
+      border-top: 1.5px solid #b8a88a;
+    }
+
+    .illustration .cliff::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1.5px;
+      height: 60px;
+      background: #b8a88a;
+    }
+
+    .illustration .figure {
+      position: absolute;
+      bottom: 10px;
+      left: 95px;
+      width: 14px;
+      height: 48px;
+      border: 1.5px solid #b8a88a;
+    }
+
+    .illustration .figure::before {
+      content: "";
+      position: absolute;
+      top: -16px;
+      left: 1px;
+      width: 12px;
+      height: 12px;
+      border: 1.5px solid #b8a88a;
+      border-radius: 50%;
+    }
+
+    .illustration .figure::after {
+      content: "";
+      position: absolute;
+      bottom: -14px;
+      left: 0;
+      width: 10px;
+      height: 14px;
+      border-left: 1.5px solid #b8a88a;
+      border-right: 1.5px solid #b8a88a;
+    }
+
+    .illustration .stick {
+      position: absolute;
+      bottom: 2px;
+      left: 82px;
+      width: 1.5px;
+      height: 52px;
+      background: #b8a88a;
+      transform: rotate(15deg);
+    }
+
+    .illustration .stick::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      left: -5px;
+      width: 11px;
+      height: 9px;
+      border: 1.5px solid #b8a88a;
+      border-radius: 50%;
+    }
+
+    .illustration .dog {
+      position: absolute;
+      bottom: 10px;
+      left: 58px;
+      width: 14px;
+      height: 9px;
+      border: 1.5px solid #b8a88a;
+    }
+
+    .illustration .dog::before {
+      content: "";
+      position: absolute;
+      top: -5px;
+      right: -1px;
+      width: 7px;
+      height: 6px;
+      border: 1.5px solid #b8a88a;
+      border-radius: 50%;
+    }
+
+    /* Overlapping title - positioned over the image */
+    .title-overlay {
+      position: absolute;
+      top: 55vh;
+      right: 8%;
+      z-index: 2;
+    }
+
+    .title-overlay h1 {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 6rem;
+      font-weight: 900;
+      text-transform: uppercase;
+      line-height: 0.85;
+      margin: 0;
+      color: #1a1a1a;
+      mix-blend-mode: multiply;
+    }
+
+    .title-overlay .issue {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.4em;
+      text-transform: uppercase;
+      color: #999;
+      margin-top: 0.5rem;
+    }
+
+    /* Article text block - overlaps bottom of image */
+    .article {
+      position: absolute;
+      top: 68vh;
+      left: 8%;
+      width: 45%;
+      z-index: 2;
+      padding: 2rem 0;
+    }
+
+    .article .kicker {
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 0.6rem;
+      letter-spacing: 0.35em;
+      text-transform: uppercase;
+      color: #999;
+      margin-bottom: 0.8rem;
+    }
+
+    .article p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      color: #444;
+    }
+
+    /* Pull quote overlapping right */
+    .pull-quote {
+      position: absolute;
+      top: 30vh;
+      right: 5%;
+      width: 25%;
+      z-index: 3;
+      font-style: italic;
+      font-size: 1.3rem;
+      line-height: 1.5;
+      color: #888;
+      border-left: 2px solid #ccc;
+      padding-left: 1rem;
+    }
+
+    /* Page number */
+    .page-num {
+      position: fixed;
+      bottom: 20px;
+      right: 30px;
+      font-family: Helvetica, Arial, sans-serif;
+      font-size: 0.65rem;
+      letter-spacing: 0.3em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <div class="spread">
+    <div class="card-image">
+      <span class="card-number">Plate I — Card Zero</span>
+      <div class="illustration">
+        <div class="sun"></div>
+        <div class="cliff"></div>
+        <div class="stick"></div>
+        <div class="figure"></div>
+        <div class="dog"></div>
+      </div>
+    </div>
+
+    <div class="pull-quote">&ldquo;Embrace the unknown with an open heart.&rdquo;</div>
+
+    <div class="title-overlay">
+      <h1>The<br>Fool</h1>
+      <div class="issue">Issue No. 0 &mdash; Major Arcana Collection</div>
+    </div>
+
+    <div class="article">
+      <div class="kicker">Tarot &middot; Arcana &middot; Symbolism</div>
+      <p>The Fool is card 0 of the Major Arcana. It represents new beginnings, spontaneity, and a free spirit. The card depicts a young traveler stepping carefree toward the edge of a cliff, carrying a small bundle and a white rose. A small dog follows at their heels. The Fool reminds us to embrace the unknown with an open heart and trust the journey ahead.</p>
+    </div>
+
+    <div class="page-num">TAROTBOOK &mdash; 001</div>
+  </div>
+</body>
+</html>

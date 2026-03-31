@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fool — Modern Mystical</title>
+  <style>
+    /* v4 Minimalist layout + v2 Mystical palette */
+    body {
+      font-family: "SF Mono", "Helvetica Neue", Helvetica, Arial, sans-serif;
+      background-color: #1a0a2e;
+      color: #c9a84c;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 100px 40px;
+    }
+
+    h1 {
+      font-weight: 300;
+      font-size: 1.8rem;
+      letter-spacing: 0.3em;
+      color: #c9a84c;
+      margin-bottom: 60px;
+      padding-bottom: 20px;
+      border-bottom: 1px solid rgba(201, 168, 76, 0.25);
+      text-shadow: 0 0 8px rgba(201, 168, 76, 0.15);
+    }
+
+    .card-image {
+      width: 180px;
+      height: 270px;
+      border: 1px solid rgba(201, 168, 76, 0.3);
+      position: relative;
+      overflow: hidden;
+      margin-bottom: 60px;
+      background: rgba(42, 18, 72, 0.4);
+      box-shadow: 0 0 20px rgba(201, 168, 76, 0.05);
+    }
+
+    .card-number {
+      position: absolute;
+      top: 10px;
+      left: 12px;
+      font-size: 0.65rem;
+      color: rgba(201, 168, 76, 0.4);
+      letter-spacing: 0.05em;
+    }
+
+    .card-label {
+      position: absolute;
+      bottom: 10px;
+      width: 100%;
+      text-align: center;
+      font-size: 0.55rem;
+      letter-spacing: 0.3em;
+      color: rgba(201, 168, 76, 0.4);
+    }
+
+    /* Sun - hairline gold circle */
+    .sun {
+      position: absolute;
+      top: 22px;
+      right: 25px;
+      width: 28px;
+      height: 28px;
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      border-radius: 50%;
+    }
+
+    .sun::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 4px;
+      height: 4px;
+      margin: -2px 0 0 -2px;
+      background: rgba(201, 168, 76, 0.5);
+      border-radius: 50%;
+      box-shadow: 0 0 6px rgba(201, 168, 76, 0.3);
+    }
+
+    /* Stars - from v2 */
+    .stars {
+      position: absolute;
+      top: 40px;
+      left: 18px;
+      width: 3px;
+      height: 3px;
+      background: rgba(201, 168, 76, 0.4);
+      border-radius: 50%;
+      box-shadow:
+        20px -8px 0 0px rgba(201, 168, 76, 0.3),
+        50px 10px 0 0px rgba(201, 168, 76, 0.2),
+        12px 25px 0 0px rgba(201, 168, 76, 0.35),
+        65px 40px 0 0px rgba(201, 168, 76, 0.15);
+    }
+
+    /* Cliff - thin gold line */
+    .cliff {
+      position: absolute;
+      bottom: 28px;
+      left: 0;
+      width: 115px;
+      height: 0;
+      border-top: 1px solid rgba(201, 168, 76, 0.25);
+    }
+
+    .cliff::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 1px;
+      height: 50px;
+      background: rgba(201, 168, 76, 0.15);
+    }
+
+    /* Figure - thin gold lines */
+    .figure {
+      position: absolute;
+      bottom: 28px;
+      left: 78px;
+      width: 1px;
+      height: 42px;
+      background: rgba(201, 168, 76, 0.5);
+    }
+
+    .figure::before {
+      content: "";
+      position: absolute;
+      top: -12px;
+      left: -4px;
+      width: 9px;
+      height: 9px;
+      border: 1px solid rgba(201, 168, 76, 0.5);
+      border-radius: 50%;
+    }
+
+    .figure::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -4px;
+      width: 8px;
+      height: 10px;
+      border-left: 1px solid rgba(201, 168, 76, 0.5);
+      border-right: 1px solid rgba(201, 168, 76, 0.5);
+    }
+
+    /* Stick */
+    .stick {
+      position: absolute;
+      bottom: 22px;
+      left: 70px;
+      width: 1px;
+      height: 46px;
+      background: rgba(201, 168, 76, 0.35);
+      transform: rotate(15deg);
+    }
+
+    .stick::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      left: -3px;
+      width: 7px;
+      height: 6px;
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      border-radius: 50%;
+    }
+
+    /* Dog */
+    .dog {
+      position: absolute;
+      bottom: 28px;
+      left: 52px;
+      width: 10px;
+      height: 6px;
+      border: 1px solid rgba(201, 168, 76, 0.35);
+    }
+
+    .dog::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      right: -1px;
+      width: 5px;
+      height: 4px;
+      border: 1px solid rgba(201, 168, 76, 0.35);
+      border-radius: 50%;
+    }
+
+    p {
+      line-height: 2;
+      font-size: 0.9rem;
+      padding-top: 40px;
+      border-top: 1px solid rgba(201, 168, 76, 0.25);
+      color: rgba(201, 168, 76, 0.7);
+    }
+  </style>
+</head>
+<body>
+  <h1>The Fool</h1>
+  <div class="card-image">
+    <span class="card-number">0</span>
+    <div class="stars"></div>
+    <div class="sun"></div>
+    <div class="cliff"></div>
+    <div class="stick"></div>
+    <div class="figure"></div>
+    <div class="dog"></div>
+    <span class="card-label">THE FOOL</span>
+  </div>
+  <p>The Fool is card 0 of the Major Arcana. It represents new beginnings, spontaneity, and a free spirit. The card depicts a young traveler stepping carefree toward the edge of a cliff, carrying a small bundle and a white rose. A small dog follows at their heels. The Fool reminds us to embrace the unknown with an open heart and trust the journey ahead.</p>
+</body>
+</html>

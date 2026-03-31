@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fool - Tarot Page</title>
+  <style>
+    body {
+      font-family: 'Times New Roman', Times, serif;
+      background-color: #c0c0c0;
+      color: #000;
+      margin: 0;
+      padding: 0;
+    }
+
+    /* Tiled background pattern */
+    .bg-tile {
+      background-image:
+        linear-gradient(45deg, #b8b8b8 25%, transparent 25%),
+        linear-gradient(-45deg, #b8b8b8 25%, transparent 25%),
+        linear-gradient(45deg, transparent 75%, #b8b8b8 75%),
+        linear-gradient(-45deg, transparent 75%, #b8b8b8 75%);
+      background-size: 20px 20px;
+      background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+      min-height: 100vh;
+      padding: 10px;
+    }
+
+    .container {
+      max-width: 600px;
+      margin: 0 auto;
+      background: #fff;
+      border: 2px outset #ddd;
+      padding: 15px;
+    }
+
+    /* Hit counter style header */
+    .header-bar {
+      background: #000080;
+      color: #fff;
+      padding: 4px 8px;
+      font-size: 0.85rem;
+      font-family: Arial, sans-serif;
+      margin-bottom: 10px;
+    }
+
+    h1 {
+      font-size: 1.8rem;
+      color: #000080;
+      margin: 10px 0;
+    }
+
+    hr {
+      border: none;
+      border-top: 2px groove #ccc;
+      margin: 10px 0;
+    }
+
+    a {
+      color: #0000ee;
+      text-decoration: underline;
+    }
+
+    a:visited {
+      color: #551a8b;
+    }
+
+    .card-image {
+      width: 200px;
+      height: 300px;
+      border: 3px outset #999;
+      background: #ffffcc;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin: 10px auto;
+      font-family: 'Times New Roman', serif;
+    }
+
+    .card-image .card-number {
+      position: absolute;
+      top: 6px;
+      left: 8px;
+      font-size: 0.8rem;
+      font-weight: bold;
+    }
+
+    .card-image .card-label {
+      position: absolute;
+      bottom: 8px;
+      font-size: 0.7rem;
+      font-weight: bold;
+      letter-spacing: 0.1em;
+    }
+
+    /* Sun */
+    .card-image .sun {
+      width: 35px;
+      height: 35px;
+      border: 2px solid #cc8800;
+      border-radius: 50%;
+      margin-bottom: 8px;
+      position: relative;
+    }
+
+    .card-image .sun::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: 8px;
+      height: 8px;
+      margin: -4px 0 0 -4px;
+      background: #cc8800;
+      border-radius: 50%;
+    }
+
+    /* Figure */
+    .card-image .figure {
+      width: 14px;
+      height: 35px;
+      border: 2px solid #333;
+      position: relative;
+      margin-bottom: 4px;
+    }
+
+    .card-image .figure::before {
+      content: "";
+      position: absolute;
+      top: -13px;
+      left: 1px;
+      width: 10px;
+      height: 10px;
+      border: 2px solid #333;
+      border-radius: 50%;
+    }
+
+    .card-image .figure::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 10px;
+      height: 10px;
+      border-left: 2px solid #333;
+      border-right: 2px solid #333;
+    }
+
+    /* Cliff line */
+    .card-image .cliff {
+      width: 120px;
+      height: 0;
+      border-top: 2px solid #666;
+    }
+
+    .marquee-text {
+      background: #000;
+      color: #0f0;
+      padding: 3px 8px;
+      font-family: 'Courier New', monospace;
+      font-size: 0.8rem;
+      margin: 10px 0;
+      overflow: hidden;
+      white-space: nowrap;
+      text-align: center;
+    }
+
+    .info-table {
+      border-collapse: collapse;
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    .info-table td {
+      border: 1px solid #999;
+      padding: 4px 8px;
+      font-size: 0.9rem;
+    }
+
+    .info-table td:first-child {
+      background: #ddd;
+      font-weight: bold;
+      width: 120px;
+    }
+
+    p {
+      font-size: 0.95rem;
+      line-height: 1.5;
+      margin: 10px 0;
+    }
+
+    .counter {
+      text-align: center;
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      color: #666;
+      margin: 10px 0;
+    }
+
+    .counter .digits {
+      display: inline-block;
+      background: #000;
+      color: #0f0;
+      padding: 2px 6px;
+      font-size: 0.85rem;
+      letter-spacing: 0.1em;
+    }
+
+    .badge {
+      text-align: center;
+      margin: 15px 0 5px;
+      padding: 8px;
+      border: 2px inset #ccc;
+      background: #eee;
+      font-family: Arial, sans-serif;
+      font-size: 0.7rem;
+      color: #333;
+    }
+
+    .badge .netscape {
+      font-weight: bold;
+      color: #006600;
+      font-size: 0.8rem;
+    }
+
+    .email-link {
+      text-align: center;
+      font-size: 0.8rem;
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-tile">
+    <div class="container">
+      <div class="header-bar">Location: file:///tarot/the_fool.html</div>
+
+      <h1>~* The Fool *~</h1>
+      <hr>
+
+      <div class="marquee-text">*** Welcome to my Tarot Card Page! *** Bookmark this page! ***</div>
+
+      <hr>
+
+      <p><b>Card Number:</b> 0 | <b>Arcana:</b> <a href="#">Major Arcana</a></p>
+
+      <hr>
+
+      <div class="card-image">
+        <span class="card-number">0</span>
+        <div class="sun"></div>
+        <div class="figure"></div>
+        <div class="cliff"></div>
+        <span class="card-label">THE FOOL</span>
+      </div>
+
+      <hr>
+
+      <table class="info-table">
+        <tr><td>Card Name</td><td>The Fool</td></tr>
+        <tr><td>Number</td><td>0 (Zero)</td></tr>
+        <tr><td>Element</td><td>Air</td></tr>
+        <tr><td>Planet</td><td>Uranus</td></tr>
+        <tr><td>Keywords</td><td>Beginnings, innocence, spontaneity</td></tr>
+      </table>
+
+      <hr>
+
+      <p><b>Description:</b> The Fool is card 0 of the Major Arcana. It represents new beginnings, spontaneity, and a free spirit. The card depicts a young traveler stepping carefree toward the edge of a cliff, carrying a small bundle and a white rose. A small dog follows at their heels. The Fool reminds us to embrace the unknown with an open heart and trust the journey ahead.</p>
+
+      <hr>
+
+      <p><a href="#">[Back to Gallery]</a> | <a href="#">[Next Card >>]</a> | <a href="#">[Sign Guestbook]</a></p>
+
+      <hr>
+
+      <div class="counter">You are visitor number <span class="digits">001337</span></div>
+
+      <div class="email-link"><a href="#">webmaster@tarotbook.geocities.com</a></div>
+
+      <div class="badge">
+        <span class="netscape">Best viewed in Netscape Navigator 4.0</span><br>
+        at 800x600 resolution | Made with Notepad
+      </div>
+    </div>
+  </div>
+</body>
+</html>
