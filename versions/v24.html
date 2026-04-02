@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Fool — Editorial Arcana</title>
+  <style>
+    /* v19 Classical Border + v14 Editorial CLI: magazine-scale card, monospace status bar, dark editorial */
+    body {
+      font-family: 'Courier New', Courier, monospace;
+      background: #0a0a0a;
+      color: #e8e8e8;
+      margin: 0;
+      padding: 0;
+      overflow-x: hidden;
+    }
+
+    .spread {
+      position: relative;
+      width: 100%;
+      min-height: 100vh;
+    }
+
+    /* Large card area — editorial scale */
+    .card-frame {
+      width: 60%;
+      height: 70vh;
+      background: linear-gradient(170deg, #f0e8da 0%, #e8dcc8 100%);
+      position: relative;
+      margin-left: 6%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 4px double #8b4513;
+    }
+
+    .card-frame .meta {
+      position: absolute;
+      top: 12px;
+      left: 16px;
+      font-size: 0.65rem;
+      color: #8b7355;
+      letter-spacing: 0.1em;
+    }
+
+    /* Owl inside the large card */
+    .owl {
+      position: absolute;
+      top: 50px;
+      left: 50%;
+      margin-left: -30px;
+    }
+
+    .owl-body {
+      width: 60px;
+      height: 72px;
+      background: #5a4230;
+      border-radius: 50% 50% 45% 45%;
+      position: relative;
+    }
+
+    .owl-body::before {
+      content: "";
+      position: absolute;
+      top: 16px;
+      left: 8px;
+      width: 16px;
+      height: 16px;
+      background: #f0e8da;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 5px #5a4230;
+    }
+
+    .owl-body::after {
+      content: "";
+      position: absolute;
+      top: 16px;
+      right: 8px;
+      width: 16px;
+      height: 16px;
+      background: #f0e8da;
+      border-radius: 50%;
+      box-shadow: inset 0 0 0 5px #5a4230;
+    }
+
+    .owl-beak {
+      width: 0;
+      height: 0;
+      border-left: 7px solid transparent;
+      border-right: 7px solid transparent;
+      border-top: 10px solid #8b7355;
+      position: absolute;
+      top: 36px;
+      left: 50%;
+      margin-left: -7px;
+      z-index: 1;
+    }
+
+    .owl-ear-l {
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 20px solid #5a4230;
+      position: absolute;
+      top: -16px;
+      left: 4px;
+      transform: rotate(-10deg);
+    }
+
+    .owl-ear-r {
+      width: 0;
+      height: 0;
+      border-left: 8px solid transparent;
+      border-right: 8px solid transparent;
+      border-bottom: 20px solid #5a4230;
+      position: absolute;
+      top: -16px;
+      right: 4px;
+      transform: rotate(10deg);
+    }
+
+    .owl-feet {
+      width: 32px;
+      height: 6px;
+      margin: 0 auto;
+      border-left: 4px solid #5a4230;
+      border-right: 4px solid #5a4230;
+    }
+
+    /* Scene elements inside card */
+    .cliff {
+      position: absolute;
+      bottom: 60px;
+      left: 10%;
+      width: 45%;
+      height: 80px;
+      border-top: 2px solid #8b7355;
+      border-right: 2px solid #8b7355;
+    }
+
+    .figure {
+      position: absolute;
+      bottom: 140px;
+      left: 42%;
+      width: 14px;
+      height: 38px;
+      border: 2px solid #5a4230;
+      border-radius: 2px;
+    }
+
+    .figure::before {
+      content: "";
+      position: absolute;
+      top: -15px;
+      left: 0px;
+      width: 12px;
+      height: 12px;
+      border: 2px solid #5a4230;
+      border-radius: 50%;
+    }
+
+    .figure::after {
+      content: "";
+      position: absolute;
+      bottom: -13px;
+      left: 0px;
+      width: 10px;
+      height: 13px;
+      border-left: 2px solid #5a4230;
+      border-right: 2px solid #5a4230;
+    }
+
+    .dog {
+      position: absolute;
+      bottom: 140px;
+      left: 36%;
+      width: 12px;
+      height: 8px;
+      border: 2px solid #6b5a3e;
+      border-radius: 2px;
+    }
+
+    .dog::before {
+      content: "";
+      position: absolute;
+      top: -4px;
+      right: -2px;
+      width: 7px;
+      height: 5px;
+      border: 2px solid #6b5a3e;
+      border-radius: 50%;
+    }
+
+    .card-label-big {
+      position: absolute;
+      bottom: 20px;
+      width: 100%;
+      text-align: center;
+      font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+      font-size: 0.7rem;
+      letter-spacing: 0.3em;
+      text-transform: uppercase;
+      color: #8b7355;
+    }
+
+    /* Wax Seal */
+    @keyframes sealBreathe {
+      0%, 100% {
+        transform: scale(1);
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.15);
+      }
+      50% {
+        transform: scale(1.08);
+        box-shadow: 0 3px 10px rgba(139, 0, 0, 0.4), inset 0 1px 2px rgba(255, 255, 255, 0.15);
+      }
+    }
+
+    .wax-seal {
+      position: absolute;
+      bottom: -18px;
+      right: -18px;
+      width: 46px;
+      height: 46px;
+      background: radial-gradient(circle at 40% 40%, #b81a1a, #8B0000 60%, #6a0000);
+      border-radius: 50%;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.3), inset 0 1px 2px rgba(255, 255, 255, 0.15);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+      font-size: 1rem;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.7);
+      animation: sealBreathe 3s ease-in-out infinite;
+    }
+
+    /* Massive overlapping title — editorial */
+    .title-overlay {
+      position: absolute;
+      top: 50vh;
+      right: 6%;
+      z-index: 2;
+    }
+
+    .title-overlay h1 {
+      font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+      font-size: 6rem;
+      font-weight: normal;
+      text-transform: uppercase;
+      line-height: 0.85;
+      margin: 0;
+      color: #fff;
+      letter-spacing: 0.15em;
+      text-shadow: 2px 2px 20px rgba(0, 0, 0, 0.8);
+    }
+
+    .title-overlay .tag {
+      font-family: 'Courier New', Courier, monospace;
+      font-size: 0.6rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #555;
+      margin-top: 0.5rem;
+    }
+
+    /* Pull quote */
+    .pull-quote {
+      position: absolute;
+      top: 25vh;
+      right: 5%;
+      width: 22%;
+      z-index: 3;
+      font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+      font-size: 1rem;
+      font-style: italic;
+      line-height: 1.7;
+      color: #888;
+      border-left: 2px solid #8b7355;
+      padding-left: 1rem;
+    }
+
+    /* Article block */
+    .article {
+      position: absolute;
+      top: 68vh;
+      left: 6%;
+      width: 50%;
+      z-index: 2;
+      padding: 1.5rem 0;
+    }
+
+    .article .kicker {
+      font-size: 0.6rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #555;
+      margin-bottom: 0.8rem;
+    }
+
+    .article p {
+      font-family: 'Palatino Linotype', Palatino, Georgia, serif;
+      font-size: 0.9rem;
+      line-height: 1.8;
+      color: #aaa;
+    }
+
+    /* Cursor */
+    .cursor {
+      display: inline-block;
+      width: 8px;
+      height: 14px;
+      background: #e8e8e8;
+      animation: blink 1s step-end infinite;
+      vertical-align: text-bottom;
+    }
+
+    @keyframes blink {
+      50% { background: transparent; }
+    }
+
+    /* Status bar */
+    .status {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      background: #111;
+      border-top: 1px solid #333;
+      padding: 6px 20px;
+      font-size: 0.6rem;
+      color: #8b7355;
+      display: flex;
+      justify-content: space-between;
+      letter-spacing: 0.05em;
+    }
+  </style>
+</head>
+<body>
+  <div class="spread">
+    <div class="card-frame">
+      <span class="meta">$ cat /codex/arcana/major/00_the_fool</span>
+      <div class="owl">
+        <div class="owl-ear-l"></div>
+        <div class="owl-ear-r"></div>
+        <div class="owl-body">
+          <div class="owl-beak"></div>
+        </div>
+        <div class="owl-feet"></div>
+      </div>
+      <div class="cliff"></div>
+      <div class="figure"></div>
+      <div class="dog"></div>
+      <span class="card-label-big">THE FOOL</span>
+      <div class="wax-seal">0</div>
+    </div>
+
+    <div class="pull-quote">Embrace the unknown with an open heart and trust the journey ahead.</div>
+
+    <div class="title-overlay">
+      <h1>THE<br>FOOL</h1>
+      <div class="tag">card 0 &mdash; major arcana &mdash; liber stultorum</div>
+    </div>
+
+    <div class="article">
+      <div class="kicker">$ tarot --describe --verbose card_0</div>
+      <p>The Fool is card 0 of the Major Arcana. It represents new beginnings, spontaneity, and a free spirit. The card depicts a young traveler stepping carefree toward the edge of a cliff, carrying a small bundle and a white rose. A small dog follows at their heels. The Fool reminds us to embrace the unknown with an open heart and trust the journey ahead.<span class="cursor"></span></p>
+    </div>
+
+    <div class="status">
+      <span>tarotbook v1.0 &mdash; codex edition</span>
+      <span>card 0/21 | major_arcana | palatino-utf8</span>
+    </div>
+  </div>
+</body>
+</html>
